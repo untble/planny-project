@@ -1,0 +1,30 @@
+.dashboard {
+    position: relative;
+    background-color: #F5F2EA;
+    height: 85vh;
+    width: 100%;
+
+    border-radius: 30px;
+}
+
+
+.dashboard_buttons {
+    position: absolute;
+    height: 130px;
+    right: 15px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard_button {
+    height: 100px;
+}
+
+.dashboard_button:hover {
+    fill: black;
+    cursor: pointer;
+    transition: all .5s;
+}

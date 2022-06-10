@@ -1,0 +1,50 @@
+.header {
+
+    background-color: #F5F2EA;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header-container {
+    height: 60px;
+    width: 90vw;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: 'Montserrat', sans-serif;
+    color: #FFFFFF;
+    padding: 0 15px;
+}
+
+.header-input {
+    min-width: 100px;
+    width: 335px;
+    height: 30px;
+    cursor: pointer;
+    display: inline-block;
+    border: none;
+    padding: 11px 12px;
+    margin-right: 50px;
+    border-radius: 4px;
+    color: black;
+    background-color: #FFFFFF;
+    line-height: 0;
+    margin-left: 15px;
+    outline-width: 0;
+}
+
+.header-logo {
+    height: 30px;
+}
+
+.header-username {
+
+}
