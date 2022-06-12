@@ -11,7 +11,7 @@ const Header = () => {
                        placeholder="Search..."
                        className="header-input"
                 />
-                <p className="header-username">test</p>
+              <div className="header-username">Nazarii CHuiko</div>
             </div>
 
         </header>
