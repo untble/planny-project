@@ -4,7 +4,7 @@ import Dashboard from './dashboard/Dashboard';
 
 const HomeScreen = () => {
   return (
-    <div>
+    <div className="h-wull w-full">
       <Header />
       <Dashboard />
     </div>

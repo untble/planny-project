@@ -1,12 +1,10 @@
 .dashboard {
-    position: relative;
-    background-color: #F5F2EA;
-    height: 85vh;
+    background: #E5E5E5;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 70px);
     width: 100%;
-
-    border-radius: 30px;
 }
-
 
 .dashboard_buttons {
     position: absolute;
