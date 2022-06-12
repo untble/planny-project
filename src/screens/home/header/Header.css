@@ -1,25 +1,21 @@
 .header {
-
     background-color: #F5F2EA;
     position: sticky;
-    /*z-index: 1000;*/
     top: 0;
     left: 0;
-
     font-family: 'Montserrat', sans-serif;
 }
 
 .header-container {
     height: 70px;
-    width: 90vw;
-    margin: 0 auto 30px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     font-family: 'Montserrat', sans-serif;
     color: #FFFFFF;
-    /*padding: 0 15px;*/
+    padding: 0 40px;
 }
 
 .header-input {
