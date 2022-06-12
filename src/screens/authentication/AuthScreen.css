@@ -41,7 +41,7 @@ a {
 }
 
 
-button {
+.auth-button {
     border-radius: 20px;
     border: 1px solid #FDC886;
     background-color: #FDC886;
@@ -55,11 +55,12 @@ button {
     cursor: pointer;
 }
 
-button:active {
+.auth-button:active {
     transform: scale(0.95);
 }
 
-button.ghost {
+
+.auth-button.ghost {
     background-color: transparent;
     border-color: black;
     color: black;

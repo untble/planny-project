@@ -41,7 +41,7 @@ const SignInForm = ({ buttonName, title, subtitle, mode, onSubmit }) => {
       value={password}
       onChange={(e) => setPassword(e.target.value)}
     />
-    <button>{buttonName}</button>
+    <button className="auth-button">{buttonName}</button>
   </form>;
 };
 
