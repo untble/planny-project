@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UiModal from '../UI/UiModal/UiModal';
 import { useForm } from 'react-hook-form';
 import UiTitle from '../UI/UiTitle/UiTitle';
@@ -16,13 +16,17 @@ const AddDailyGoalItemModal = ({ visible, setVisible }) => {
     formState: { errors },
   } = useForm();
   const format = 'h:mm';
-  const now = moment();
+  const now = moment()  ;
+  const [state, setState] = useState(now);
+  const handleChange = (value) => {
+    setState(value)
+  }
 
   return (
     <UiModal visible={visible} setVisible={setVisible}>
       <UiTitle title='Add daily goal' className='text-center font-medium text-3xl mb-12' />
-      <form className='flex flex-col gap-4' onSubmit={handleSubmit(() => {
-      })}>
+      <form className='flex flex-col gap-4' onSubmit={handleSubmit((data) => console.log(data.goalTitle, data.goalDescription, state.toDate().toTimeString())
+      )}>
         <div>
           <label className='font-medium text-lg'>Goal Title</label>
           <input
@@ -58,13 +62,13 @@ const AddDailyGoalItemModal = ({ visible, setVisible }) => {
           <label className='font-medium text-lg'>Choose time</label>
           <TimePicker
             showSecond={false}
-            defaultValue={now}
+            // defaultValue={now}
+            value={state}
             allowEmpty={false}
             format={format}
+            onChange={handleChange}
             inputReadOnly
           />
-          {errors?.timePicker?.type === 'required' &&
-            <p className='flex text-red-500'><BiError size={24} /> This field is required</p>}
         </div>
         <div className='mt-12 w-full flex items-center justify-end gap-3'>
           <UiButton type='button' variant='cancel' text='Cancel' onClick={() => setVisible(false)} />
