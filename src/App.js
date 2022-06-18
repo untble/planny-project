@@ -23,7 +23,7 @@ const App = () => {
     <>
       <Switch>
         <Route exact path='/'><AuthScreen /></Route>
-        <Route exact path='/home'> <HomeScreen /></Route>
+        <Route exact path='/home'><HomeScreen /></Route>
         {/*<Route path='/home' element={<HomeScreen />} />*/}
       </Switch>
     </>
