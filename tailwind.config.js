@@ -73,7 +73,11 @@ module.exports = {
   ],
   theme: {
     spacing,
-    extend: {},
+    extend: {
+      height: {
+        sc: 'calc(100vh - 250px)',
+      },
+    },
   },
   plugins: [],
 }

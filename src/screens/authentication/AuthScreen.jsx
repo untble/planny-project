@@ -47,13 +47,13 @@ const AuthScreen = () => {
         <div className='overlay-container'>
           <div className='overlay'>
             <div className='overlay-panel overlay-left'>
-              <h1>Welcome Back</h1>
-              <p>To keep connected with us please login</p>
+              <h1 className="header-1">Welcome Back</h1>
+              <p className="paragraph">To keep connected with us please login</p>
               <button className='auth-button ghost' id='SignIn'>Sign In</button>
             </div>
             <div className='overlay-panel overlay-right'>
-              <h1>Hello Friend</h1>
-              <p>Enter your personal details and start with us</p>
+              <h1 className="header-1">Hello Friend</h1>
+              <p className="paragraph">Enter your personal details and start with us</p>
               <button className='auth-button ghost' id='SignUp'>Sign Up</button>
             </div>
           </div>

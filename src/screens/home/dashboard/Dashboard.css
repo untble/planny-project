@@ -1,3 +1,15 @@
+::-webkit-scrollbar {
+    @apply w-1 h-1;
+}
+
+::-webkit-scrollbar-track {
+    @apply w-1.5 h-1.5;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply w-1 h-1 rounded bg-indigo-300;
+}
+
 .scrollbar::-webkit-scrollbar {
     @apply w-1 h-1;
 }
