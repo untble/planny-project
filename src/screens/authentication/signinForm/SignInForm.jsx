@@ -4,6 +4,7 @@ import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faMailBulk } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
 import { BiError } from 'react-icons/bi';
+import { getAuth, updateProfile } from 'firebase/auth';
 
 
 const SignInForm = ({ buttonName, title, subtitle, mode, onSubmit }) => {
@@ -12,9 +13,17 @@ const SignInForm = ({ buttonName, title, subtitle, mode, onSubmit }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   return <form className='form'
-               onSubmit={handleSubmit((data) => onSubmit(data.userEmail, data.userPassword, data.userName, mode))}>
+               onSubmit={handleSubmit(async (data) => {
+                 const auth = getAuth()
+                 console.log('data', data);
+                 console.log('auth', auth);
+                 onSubmit(data.userEmail, data.userPassword, data.userName, mode);
+                 await updateProfile(auth.currentUser, {
+                   displayName: data.userName,
+                 }).then(res => console.log('user name', res)).catch(err => console.log(err));
+                 console.log('auth2', auth);
+               })}>
     <h1 className='header-1'>{title}</h1>
     <div className='social-container'>
       <a href='#' className='social link'><FontAwesomeIcon icon={faFacebook} /></a>
@@ -23,19 +32,10 @@ const SignInForm = ({ buttonName, title, subtitle, mode, onSubmit }) => {
     </div>
     <span className='span-1'>{subtitle}</span>
     <div className='w-full'>
-      {mode && <input
-        type='text'
-        placeholder='Name'
-        className='input'
-        {...register('userName', {
-          required: true,
-          minLength: 5,
-        })}
-      />}
       {errors?.userName?.type === 'required' &&
-        <p className='flex text-red-500 mb-4'><BiError size={24} /> This field is required</p>}
+      <p className='flex text-red-500'><BiError size={24} /> This field is required</p>}
       {errors?.userName?.type === 'minLength' && (
-        <p className='flex text-red-500 mb-4'><BiError size={24} /> Name length must be more then 5</p>
+        <p className='flex text-red-500'><BiError size={24} /> Name length must be more then 5</p>
       )}
 
       <input
@@ -48,9 +48,9 @@ const SignInForm = ({ buttonName, title, subtitle, mode, onSubmit }) => {
         })}
       />
       {errors?.userEmail?.type === 'required' &&
-        <p className='flex text-red-500 w-full mb-4'><BiError size={24} /> This field is required</p>}
+      <p className='flex text-red-500 w-full'><BiError size={24} /> This field is required</p>}
       {errors?.userEmail?.type === 'pattern' && (
-        <p className='flex text-red-500 mb-4'><BiError size={24} /> Email should be valid!</p>
+        <p className='flex text-red-500'><BiError size={24} /> Email should be valid!</p>
       )}
       <input
         type='password'
@@ -62,9 +62,9 @@ const SignInForm = ({ buttonName, title, subtitle, mode, onSubmit }) => {
         })}
       />
       {errors?.userPassword?.type === 'required' &&
-        <p className='flex text-red-500 mb-4'><BiError size={24} /> This field is required</p>}
+      <p className='flex text-red-500'><BiError size={24} /> This field is required</p>}
       {errors?.userPassword?.type === 'minLength' && (
-        <p className='flex text-red-500 mb-4'><BiError size={24} /> Password length must be more then 8</p>
+        <p className='flex text-red-500'><BiError size={24} /> Password length must be more then 8</p>
       )}
     </div>
     <button className='auth-button'>{buttonName}</button>

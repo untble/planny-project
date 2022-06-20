@@ -17,7 +17,6 @@ const AuthScreen = () => {
   const onSubmit = (email, password, name, mode) => {
     handleAuth(email, password, name, mode).then(user => {
       history.push('/home');
-      console.log(user);
     }).catch(error => {
       alert(error.message);
     });
